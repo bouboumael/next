@@ -1,8 +1,14 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
+import type {Metadata} from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'next test mael',
+  description: 'ma première app next'
+}
 
 export default function Home() {
   return (
