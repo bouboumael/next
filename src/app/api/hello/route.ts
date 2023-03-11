@@ -5,5 +5,5 @@ export async function GET() {
     next: { revalidate: 5 } // Revalidate every 60 seconds
   });
   const data = await res.json();
-  return NextResponse.json({ data })
+  return NextResponse.json(data)
 }

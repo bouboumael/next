@@ -3,9 +3,15 @@
 import Link from "next/link";
 import {useEffect, useState} from "react";
 
+type Placeholder= {
+    body: string;
+    id: number;
+    title: string;
+    userId: number
+}
 export default function ContentPage() {
 
-    const [api, setApi] = useState()
+    const [api, setApi] = useState<Placeholder[]>()
 
     const fetchData = async() =>{
         const data = await fetch('/api/hello')
@@ -17,16 +23,28 @@ export default function ContentPage() {
         fetchData()
     },[])
 
-    useEffect(()=>{
-        console.log(api)
-    },[api])
-
     return (
         <>
             <Link href="/">
                 Accueil
             </Link>
-            <h1>Hello, Maël 2</h1>
+            <br/>
+            <h1>Hello, Maël</h1>
+            <p>Voici la liste des placeholders</p>
+            <br/>
+            <ul>
+                {
+                    api?.map((placeholder: Placeholder) => {
+                        return (
+                            <li key={placeholder.id}>
+                                <Link href={`hello/${placeholder.id}`}>
+                                    <h3>{placeholder.title}</h3>
+                                </Link>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
         </>
     );
 }
