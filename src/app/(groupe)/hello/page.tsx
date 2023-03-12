@@ -1,5 +1,7 @@
-import ContentPage from "@/app/(groupe)/hello/ContentPage";
+
 import {Metadata} from "next";
+import React from "react";
+import ContentPageContainer from "@/app/(groupe)/hello/ContentPage";
 
 export const metadata: Metadata = {
     title: 'next test mael',
@@ -7,5 +9,5 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-    return <ContentPage />;
+    return <ContentPageContainer />;
 }
