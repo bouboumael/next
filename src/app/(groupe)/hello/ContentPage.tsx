@@ -9,6 +9,7 @@ type Placeholder= {
     title: string;
     userId: number
 }
+
 export default function ContentPage() {
 
     const [api, setApi] = useState<Placeholder[]>()
@@ -48,3 +49,4 @@ export default function ContentPage() {
         </>
     );
 }
+
